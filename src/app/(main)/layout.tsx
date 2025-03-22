@@ -5,7 +5,14 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return <div className="sm:px-32 px-5 pt-8">{children}</div>;
+  return (
+    <>
+      <div>{children}</div>
+    </>
+  );
 };
 
 export default Layout;
+
+
+

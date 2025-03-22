@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { useUser } from "@stackframe/stack";
 import Institution from "./_components/Institution";
+import Navbar from "@/components/custom/Navbar";
 
 const Onboarding = () => {
   const [institution, setInstitution] = useState<string>("");
@@ -65,6 +66,7 @@ const Onboarding = () => {
   return (
     <div className="w-full h-full items-center justify-center flex flex-col">
       {/* //name of the institute */}
+      <Navbar/>
       <form
         className="md:w-[80%] lg:w-[70%] w-[90%] h-auto space-y-2 flex flex-col"
         onSubmit={handleSubmit}

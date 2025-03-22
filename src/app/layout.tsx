@@ -3,8 +3,6 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/custom/Navbar";
 import { ConvexClientProvider } from "@/components/ConvexClientProvider";
 
 export const metadata: Metadata = {
@@ -27,7 +25,7 @@ export default function RootLayout({
         <StackProvider app={stackServerApp}>
           <StackTheme>
             <ConvexClientProvider>
-              <Navbar />
+
               {children}
             </ConvexClientProvider>
           </StackTheme>
