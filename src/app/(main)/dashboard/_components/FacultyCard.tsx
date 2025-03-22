@@ -86,7 +86,9 @@ const FacultyCard: React.FC<FacultyCardProps> = ({
             className="w-full cursor-pointer mt-2 bg-sky-200"
             onClick={handleStatusUpdate}
           >
-            Save
+            {
+              currentStatus === "pending" ? "Update" : "Update Status"
+            }
           </Button>
         </CardContent>
       </Card>

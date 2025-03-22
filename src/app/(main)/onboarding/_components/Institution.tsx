@@ -1,22 +1,27 @@
 "use client";
 
 import { useQuery } from "convex/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { api } from "../../../../../convex/_generated/api";
 import CardComponent from "./Card";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useUser } from "@stackframe/stack";
 
 const Institution = () => {
-  const adminId = "jh789kr5rmr0makcx12d6wn6qh7che6m";
+  const user = useUser();
+
+  const adminId = useQuery(api.admin.getAdminId, {
+    email: user?.primaryEmail!,
+  });
 
   const router = useRouter();
 
   const getAllExistingInstitutions = useQuery(
     api.admin.getAllExistingInstitutions,
     {
-      adminId: adminId,
+      adminId: adminId!,
     }
   );
 

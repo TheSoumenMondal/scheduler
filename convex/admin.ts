@@ -21,15 +21,28 @@ export const createAdmin = mutation({
     }
 })
 
-
-
 export const getAllExistingInstitutions = query({
     args: {
-        adminId: v.string()
+        adminId: v.optional(v.string())
     },
     handler: async (ctx, args) => {
-        const institutions = await ctx.db.query("institution").filter(q => q.eq(q.field("adminId"), args.adminId)).collect();
-        return institutions;
+        const query = ctx.db.query("institution");
+        if (args.adminId) {
+            return await query.filter(q => q.eq(q.field("adminId"), args.adminId)).collect();
+        }
+        return await query.collect();
     }
 })
 
+export const getAdminId = query({
+    args: {
+        email: v.string()
+    },
+    handler: async (ctx, args) => {
+        const admin = await ctx.db.query("admin").filter(q => q.eq(q.field("email"), args.email)).unique();
+        if (!admin) {
+            return null;
+        }
+        return admin._id;
+    }
+})

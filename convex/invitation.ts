@@ -54,9 +54,12 @@ export const registerFaculty = mutation({
     args: {
         token: v.string(),
         name: v.string(),
-        email: v.string()
+        email: v.string(),
+        department: v.optional(v.string()),
+        subjectExpert: v.optional(v.string()),
+
     },
-    handler: async ({ db }, { token, name, email }) => {
+    handler: async ({ db }, { token, name, email ,department,subjectExpert }) => {
         const invitation = await db
             .query("invitation")
             .filter(q => q.eq(q.field("token"), token))
@@ -80,6 +83,8 @@ export const registerFaculty = mutation({
             institution: invitation.institutionId,
             status: "pending",
             email,
+            department,
+            subjectExpert,
         });
 
         return { facultyId };

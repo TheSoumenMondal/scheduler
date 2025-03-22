@@ -18,6 +18,8 @@ export default defineSchema({
     faculty: defineTable({
         name: v.string(),
         email: v.optional(v.string()),
+        department : v.optional(v.string()),
+        subjectExpert : v.optional(v.string()),
         status: v.string(),
         institution: v.id("institution"),
         courses: v.optional(v.array(v.id("course"))),

@@ -14,6 +14,9 @@ const Token = () => {
   const token = searchParams.get("token");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [department, setDepartment] = useState("");
+  const [subject, setSubject] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
 
   const getInstitutionName = useQuery(api.invitation.getInstitutionName, {
@@ -35,10 +38,12 @@ const Token = () => {
         token,
         name: name.trim(),
         email: email.trim(),
+        department: department.trim(),
+        subjectExpert: subject.trim(),
       });
-      if(res == 404){
-        toast.error("something went wrong",{
-          position : "top-right"
+      if (res == 404) {
+        toast.error("something went wrong", {
+          position: "top-right",
         });
         return;
       }
@@ -80,8 +85,24 @@ const Token = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <Button 
-            type="submit" 
+          <Input
+            placeholder="Enter Your Department"
+            className="w-full"
+            type="text"
+            value={department}
+            onChange={(e) => setDepartment(e.target.value)}
+            required
+          />
+          <Input
+            placeholder="Enter Your Subject Which you teaches"
+            className="w-full"
+            type="text"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            required
+          />
+          <Button
+            type="submit"
             className="bg-amber-500 hover:bg-amber-600 w-full"
             disabled={isLoading}
           >
@@ -89,7 +110,7 @@ const Token = () => {
           </Button>
         </form>
       </div>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 };
