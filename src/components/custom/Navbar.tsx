@@ -5,7 +5,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center flex-row md:px-56 sm:px-10 px-4 pt-6">
+    <div className="flex w-full mb-6 justify-between items-center flex-row sm:px-10 px-4 pt-6">
       <div className="text-stone-900 font-bold underline flex gap-1 flex-row">
         <Link href={"/"}>
           <span className="hover:cursor-pointer">SCHEDULER</span>

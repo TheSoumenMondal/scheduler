@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="select-none relative flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="select-none relative flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-24 max-w-7xl mx-auto">
       <div className="mb-6 ">
         <div className="p-[1px] bg-gradient-to-r from-pink-400 via-red-500 to-red-500 rounded-full animate-pulse">
           <Badge

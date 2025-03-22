@@ -64,9 +64,9 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="w-full h-full items-center justify-center flex flex-col">
+    <div className="w-full h-full px-32 items-center justify-center flex flex-col">
       {/* //name of the institute */}
-      <Navbar/>
+      <Navbar />
       <form
         className="md:w-[80%] lg:w-[70%] w-[90%] h-auto space-y-2 flex flex-col"
         onSubmit={handleSubmit}
@@ -99,13 +99,11 @@ const Onboarding = () => {
         </Button>
       </form>
 
+      {/* Listing all the institutions */}
 
-          {/* Listing all the institutions */}
-
-
-          <Institution/>
-          
-
+      <div>
+        <Institution />
+      </div>
 
       <Toaster />
     </div>
