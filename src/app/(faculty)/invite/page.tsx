@@ -61,7 +61,7 @@ const Token = () => {
   }
 
   return (
-    <div className="flex mt-10 items-center justify-center px-4">
+    <div className="flex w-full h-screen mt-10 items-center justify-center px-4">
       <div className="w-full max-w-md rounded-lg border p-6 shadow-lg">
         <form onSubmit={handleRegistration} className="flex flex-col space-y-4">
           <h1 className="text-2xl font-bold text-center">

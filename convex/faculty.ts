@@ -81,14 +81,14 @@ export const updateFaculty = mutation({
 
 
 export const getVerifiedFaculty = query({
-    args : {
-        institutionId : v.string(),
+    args: {
+        institutionId: v.string(),
     },
-    handler : async (ctx, args) => {
+    handler: async (ctx, args) => {
         return await ctx.db
-        .query("faculty")
-        .filter((q) => q.eq(q.field("institution"), args.institutionId))
-        .filter((q) => q.eq(q.field("status"), "approved"))
-        .collect();
+            .query("faculty")
+            .filter((q) => q.eq(q.field("institution"), args.institutionId))
+            .filter((q) => q.eq(q.field("status"), "approved"))
+            .collect();
     }
 })

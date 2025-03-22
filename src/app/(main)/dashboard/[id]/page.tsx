@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FacultyCard from "../_components/FacultyCard";
-import { ArrowRight } from "lucide-react";
+/* The unused import of ArrowRight has been removed */
 import Link from "next/link";
 
 const Dashboard = () => {
@@ -295,7 +295,11 @@ const Dashboard = () => {
                 </ul>
               </ScrollArea>
               <div className="mt-8">
-                <Button className="w-full bg-rose-500">Generate Routine</Button>
+                <Link href={`/generate/${id}`}>
+                  <Button className="w-full hover:cursor-pointer bg-stone-600 text-white">
+                    Next
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
